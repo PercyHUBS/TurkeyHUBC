@@ -3025,7 +3025,7 @@ local visualsTab = library:addTab("Visuals")
 local WorldTab = library:addTab("World")
 local MovemntTab = library:addTab("Movemnt")
 local SkinsTab = library:addTab("Skins")
--- local miscTab = library:addTab("Misc")
+local miscTab = library:addTab("Misc")
 local configTab = library:addTab("Settings")
 
 local SkinUnlock = SkinsTab:createGroup(1)
