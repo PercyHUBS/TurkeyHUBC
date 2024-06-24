@@ -3024,8 +3024,6 @@ local RageTab = library:addTab("Rage")
 local visualsTab = library:addTab("Visuals")
 local WorldTab = library:addTab("World")
 local MovemntTab = library:addTab("Movemnt")
-local SkinsTab = library:addTab("Skins")
-local miscTab = library:addTab("Misc")
 local configTab = library:addTab("Settings")
 
 local SkinUnlock = SkinsTab:createGroup(1)
@@ -3159,16 +3157,6 @@ BunnyHopGroup:addList({text = "Method",flag = "bunny_hop_method",values = {"Velo
 BunnyHopGroup:addSlider({text = "Speed",flag = "bunny_hop",min = 1,max = 300,value = 40})
 BunnyHopGroup:addKeybind({text = "Key",flag = "bunny_hop_key",key = Enum.KeyCode.Space}) 
 
-local MiscGroup,MiscFrame = miscTab:createGroup(1)
-local HitGroup,HitFrame = miscTab:createGroup(0)
-local ChangerGroup,ChangerFrame = miscTab:createGroup(0)
-local UiGroup,UiFrame = miscTab:createGroup(1)
-local SelfChamsGroup,SelfChamsFrame = miscTab:createGroup(2)
-local SelfChamsGroup2,SelfChamsFrame2 = miscTab:createGroup(2)
-local FakeLagChamsGroup,FakeLagChamFrame = miscTab:createGroup(2)
-local FovChangerGroup,FovChangerFrame = miscTab:createGroup(1)
-
-
 FovChangerGroup:addToggle({text = "Fov Changer",flag = "fov_changer_enabled"})
 FovChangerGroup:addToggle({text = "Change Fov Even On Scope",flag = "fov_changer_onscope"})
 FovChangerGroup:addSlider({text = "Fov",flag = "fov_changer",min = 1,max = 120,value = 80,})
@@ -3208,34 +3196,7 @@ FakeLagChamsGroup:addColorpicker({text = "Color",flag = "fakelag_chams_color",on
 FakeLagChamsGroup:addSlider({text = "Transparency",flag = "fakelag_chams_Transparency",min = 0,max = 10,value = 0})
 FakeLagChamsGroup:addList({text = "Material",flag = "fakelag_chams_material",values = {"SmoothPlastic","ForceField","Neon"}})
 
-MiscGroup:addToggle({text = "Third Person",flag = "third_person",callback = function(val)
-    LPH_NO_VIRTUALIZE(function()
-        ThirdPerson = val
-        if ThirdPerson then
-            selfChams()
-        end
-    end)()
-end})
-MiscGroup:addToggle({text = "Remove Hands On Third Person",flag = "third_person_remove_hands"})
-MiscGroup:addSlider({text = "Range",flag = "third_person_range",min = 3,max = 100,value = 5})
-MiscGroup:addKeybind({text = "Key",flag = "third_person_key",key = Enum.KeyCode.Z,callback = function(val)
-    LPH_NO_VIRTUALIZE(function()
-        if library.flags.third_person then
-            ThirdPerson = not ThirdPerson
-        end
-        if ThirdPerson then
-            selfChams()
-        end
-    end)()
-end}) 
-MiscGroup:addDivider()
-MiscGroup:addToggle({text = "Ratio Changer",flag = "ratio_changer"})
-MiscGroup:addSlider({text = "Ratio",flag = "ratio_changer_value",min = 1,max = 100,value = 100})
-MiscGroup:addDivider()
-MiscGroup:addToggle({text = "Change Viewmodel Position",flag = "viewmodel_changer"})
-MiscGroup:addSlider({text = "X",flag = "viewmodel_changer_x",min = 0,max = 60,value = 30})
-MiscGroup:addSlider({text = "Y",flag = "viewmodel_changer_Y",min = 0,max = 60,value = 30})
-MiscGroup:addSlider({text = "Z",flag = "viewmodel_changer_Z",min = 0,max = 60,value = 30,})
+
 
 HitGroup:addToggle({text = "KIll Say",flag = "kill_say"})
 HitGroup:addTextbox({text = "Text",flag = "kill_say_text"})
@@ -3294,7 +3255,6 @@ UiGroup:addToggle({text = "Remove Scope Borders",flag = "remove_scope_borders",c
         localPlayer.PlayerGui.GUI.Crosshairs["Frame" .. i].Transparency = i and 1 or 0
     end
 end})
-
 local configGroup = configTab:createGroup(0)
 local SettingsGroup = configTab:createGroup(1)
 local CrosshairGroup = configTab:createGroup(2)
